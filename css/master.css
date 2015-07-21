@@ -6,6 +6,7 @@
 {
 	position:relative;
 	display: -webkit-flex;
+	display: flex;
 	width: 45%;
 	height: 100px;
 	justify-content: flex-start;
@@ -56,6 +57,7 @@
 .Search
 {
 	display: -webkit-flex;
+	display: flex;
 	width: 100%;
 	background-color:#00B2EE;
 	height: 60px;
@@ -182,6 +184,7 @@ div a
 {
 	
 	display: -webkit-flex;
+	display: flex;
 	justify-content: center;
 	padding-right: 10px;
 }
@@ -189,6 +192,7 @@ div a
 .registerButton
 {
 	display: -webkit-flex;
+	display: flex;
 	justify-content: center;
 	padding-right: 10px;
 }
@@ -207,7 +211,7 @@ div a
 }
 .MasterFooter
 {
-	background-color:#000ddd;
+	
 	padding-top: 10px;
 	martin-top: 10px;
 }
@@ -287,6 +291,7 @@ span.tab
 .informationBox
 {
 	border: 2px solid grey;
+	border-radius: 10px;
 	padding-top: 5px;
 	height: 25px;
 	width: 50%;
