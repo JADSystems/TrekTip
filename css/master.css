@@ -1,0 +1,301 @@
+/*
+	master css to be implemented into the all pages;
+
+*/
+.Header
+{
+	position:relative;
+	display: -webkit-flex;
+	width: 45%;
+	height: 100px;
+	justify-content: flex-start;
+}
+.logo
+{
+	align-content: center;
+	padding-top: 25px;
+	padding-left: 50px;
+	width: 50px;
+	height: 48px;
+	display: block;
+
+	
+}
+.LogoText
+{
+	width: 130px;
+	height: 48px;
+	padding-top: 40px;
+	padding-left: 5px;
+	text-align: left;
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 200%;
+	font-weight: bold;
+	display: block;
+	
+	
+}
+.sublogo
+{
+	padding-top: 55px;
+	display: block;
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 75%;
+	font-weight: bold;
+}
+.login
+{
+	position: absolute;
+	left: 90%;
+	top: 7%;
+	display:block;
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 75%;
+	font-weight: bold;
+}
+.Search
+{
+	display: -webkit-flex;
+	width: 100%;
+	background-color:#00B2EE;
+	height: 60px;
+	justify-content: center;
+}
+.LocationSearch
+{
+	padding-top: 15px;
+	padding-right: 150px;
+}
+.EventSearch
+{
+	padding-top: 15px;
+	padding-right: 150px;
+}
+.searchButton
+{
+	-webkit-transition: all 150ms ease;
+	transition: all 150ms ease;
+	display: block;
+	font-size: 1.1em;
+	font-weight:bold;
+	text-transform: uppercase;
+	padding: 10px 15px;
+	margin-top: 8px;
+	color: #ccc;
+	background-color:#555;
+	background: -webkit-linear-gradiant(#888,#555);
+	background: linear-gradiant(#888, #555);
+	border: 0 none;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+	text-shadow: 0 -1px 0 #000;
+	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
+	cursor: pointer;
+	
+}
+.searchButton:hover, .searchButton:focus
+{
+	-webkit-animation: pulsate 1.2s linear infinite;
+	animation: pulsate 1.2s linear infinite;
+	outline:none;
+}
+
+@-webkit-keyframes pulsate
+{
+	0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
+    50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
+    100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+}
+@keyframes pulsate
+{
+    0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
+    50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
+    100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+}
+.searchButton:active
+{
+	color: #fff;
+	text-shadow: 0 -1px 0 #444,0 0 5px #ffd, 0 0 8px #fff;
+	box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
+    -webkit-transform: translateY(3px);
+    transform: translateY(3px);
+    -webkit-animation: none;
+    animation: none;
+}
+
+input.rounded {
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+
+input.rounded:focus {
+    border-color: #339933;
+}
+
+body
+{
+	/*background-color:#0F0F0F;*/
+	background-color:#FFFFFF;
+	color: #4f4f4f;
+	text-align: center;
+	/*color:rgb(193,191,191);*/
+
+}
+div
+{
+    margin-top: 0px;
+    font-family: 'Julius Sans One', sans-serif;
+}
+div a
+{
+    text-decoration: none;    
+}
+            
+.backgroundImg
+{
+	position: absolute;
+	right: 0%;
+	top: -800px;
+	z-index: -1;
+	
+	
+}
+
+.loginForm
+{
+	margin: 0 auto;
+	width: 400px;
+	
+}
+
+.LoginButtons
+{
+	
+	display: -webkit-flex;
+	justify-content: center;
+	padding-right: 10px;
+}
+
+.registerButton
+{
+	display: -webkit-flex;
+	justify-content: center;
+	padding-right: 10px;
+}
+
+.registration
+{
+	width: 400px;
+	margin: 0 auto;
+}
+.spacer
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.MasterFooter
+{
+	background-color:#000ddd;
+	padding-top: 10px;
+	martin-top: 10px;
+}
+
+.roundedSelect
+{
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+
+.roundedTextArea
+{
+	border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+.defaultlink
+{
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index: 1;
+	
+}
+.userHome
+{
+	width: 100%;
+	height: 500px;
+	
+}
+.userLeftColumn
+{
+	width: 50%;
+	height: 500px;
+	float: left;
+	
+}
+.userRightColumn
+{
+	float: right;
+	width: 49%;
+	height: 500px;
+	border-left: 2px dotted black;
+	
+}
+.commentHistory
+{
+	
+	width: 100%;
+    height: 440px;
+    overflow-y: scroll;
+    
+}
+span.tab
+{
+	padding: 0 60px;
+}
+.informationBox
+{
+	border: 2px solid grey;
+	padding-top: 5px;
+	height: 25px;
+	width: 50%;
+	margin: 0 auto;
+}
+.upcomingEvents
+{
+	width: 100%;
+    height: 200px;
+    overflow-y: scroll;
+	
+}

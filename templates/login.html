@@ -1,0 +1,20 @@
+{% extends "master.html"%}
+
+{%block body%}
+<br/>
+<br/>
+<br/>
+<div class="loginForm" align="center">
+	<form method ="post">
+        <input name="username" class="rounded" type="text" placeholder="Login"> <br/> <br/>
+        <input name="password" class="rounded" type="text" placeholder="Password"> <br/> <br/>
+   		<div id=LoginButtons class="LoginButtons">
+   			<input name="loginButton" class="searchButton spacer" type="submit" value="Login">
+   			
+   		
+    </form>
+    		<form action="/register"><button class="searchButton spacer">Register</button></form>
+    	</div>
+</div>
+
+{%endblock%}

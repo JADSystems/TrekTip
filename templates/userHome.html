@@ -1,0 +1,75 @@
+{% extends "master.html"%}
+
+{%block body%}
+	
+	<div id="userHome" class="userHome">
+		<div id="userLeftColumn" class="userLeftColumn">
+			<h1> Hello $name</h1>
+			Username: <div id=username class="informationBox">$Username</div><br/>
+			Email Address:<div id=email class="informationBox">$SomeEmail@emailco.com</div>
+			<br/><a href="/changePassword">Change Password</a>|<a href="/changeEmail">Change Email</a>
+			<h2>Upcoming Events</h2>
+			<div id="upcomingEvents" class="upcomingEvents">
+			<a href="/someEvent/">Event Number 1</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 2</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 3</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 4</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 5</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 6</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 7</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 8</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 9</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 10</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 11</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 12</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 13</a> <span class="tab"></span>08/30/2014<br/>
+			<a href="/someEvent/">Event Number 14</a> <span class="tab"></span>08/30/2014<br/>
+			</div>
+			
+			
+		</div>
+		<div id="userRightColumn" class="userRightColumn">
+			<h3>Comment History</h3>
+			<div id="commentHistory" class = "commentHistory">
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 1</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 2</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 3</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 4</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 5</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 6</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 7</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 8</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 9</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 10</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 11</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 12</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 13</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 14</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 15</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 16</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 17</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 18</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 19</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 20</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 21</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 22</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 23</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 24</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 25</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 26</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 27</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 28</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 29</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 30</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 31</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 32</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 33</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 34</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 35</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 36</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 37</a><br />
+				07/15/2014 12:33AM<span class="tab"></span><a href="/somecomment/">Comment Number 38</a><br />
+			</div>
+		</div>	
+	</div>
+{%endblock%}
