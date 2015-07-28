@@ -167,7 +167,7 @@ def search(web, searchval, searchlat, searchlng):
         user='root',
         passwd='TfReETO88zFyArUa65za');
     cursor=db.cursor();
-    if searchval != '':
+    if searchval != '123':
         searchQuery='use trektip; \nCALL search_attr(' + searchlat +',' + searchlng +',' + searchval+');';
     else:
         searchQuery='use trektip; \nCALL search_loc(' + searchlat +',' + searchlng+');';
@@ -177,7 +177,7 @@ def search(web, searchval, searchlat, searchlng):
     for r in cursor.fetchall():
         resultSet += str(r);
      
-    template_values.update({'searchResult':resultSet});
+    template_values.update({'searchResult':searchQuery});
     return;
     
 
