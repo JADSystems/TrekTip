@@ -1,0 +1,98 @@
+
+{% block mapScripts %}
+		
+		<script type="text/javascript"
+	      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqx4ERDM8Cnl6NjtjfIqdNv2KV-gdbG4Q">
+	    </script>
+	    <script type="text/javascript">
+	    
+	    // In the following example, markers appear when the user clicks on the map.
+		// Each marker is labeled with a single alphabetical character.
+		var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		var labelIndex = 0;
+	    
+	      function initialize() {
+	        
+		        //Set a default location if no geolocation
+		        var myLatlng1 = new google.maps.LatLng(26.824, -80.136);
+		        
+		        var mapOptions = {
+		          center: myLatlng1,
+		          mapTypeId: google.maps.MapTypeId.ROADMAP,
+		          zoom: 13
+		        };
+		        
+		        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+		        
+		        var contentString = '<div id="content">'+
+					'<div id="siteNotice">'+
+				    '</div>'+
+				    '<h1 id="firstHeading" class="firstHeading">My City {{testText}}</h1>'+
+				    '<div id="bodyContent">'+
+				    '<p><b>My City</b>, also referred to as <b>The Swamp</b>, is a large ' +
+				    'muddy formation in the southern part of '+
+				    'Florida. It lies 335&#160;km (208&#160;mi) '+
+				    'south west of the nearest large town, Swampy Springs; 450&#160;km '+
+				    '(280&#160;mi) by road. Swampy Springs and My City are the two major '+
+				    'features of the Loxahatchee Mudhole. Swampy Springs is '+
+				    'sacred to the alligator and the garbage hamster (the '+
+				    'native species of the area). It has many springs, waterholes, '+
+				    'rock caves and ancient paintings. Swampy Springs is listed as a World '+
+				    'Heritage Site.</p>'+
+				    '<p>Attribution: My City, <a href="Florida">'+
+				    'https://en.wikipedia.org/wiki/Florida</a> '+
+				    '(last visited June 22, 2009).</p>'+
+				    '</div>'+
+				    '</div>';
+				    
+				var infowindow = new google.maps.InfoWindow({
+      				content: contentString
+  				});
+		   
+		     	// This event listener calls addMarker() when the map is clicked.
+  				google.maps.event.addListener(map, 'click', function(event) {
+    			addMarker(event.latLng, map);
+  				});
+		        
+
+  				// Adds a marker to the map.
+				function addMarker(location, map) {
+	  				
+		  			// Add the marker at the clicked location, and add the next-available label
+		  			// from the array of alphabetical characters.
+		  			var marker = new google.maps.Marker({
+			    		position: location,
+			    		label: labels[labelIndex++ % labels.length],
+			    		map: map
+	  					});
+	  					
+	  					google.maps.event.addListener(marker, 'click', function() {
+    					infowindow.open(map,marker);
+  						});
+  					}
+	  							            
+		        //If geolocation is available, center on map and add a marker		        
+		        if (navigator.geolocation) {
+	         		navigator.geolocation.getCurrentPosition(function (position) {
+	             		initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	             		map.setCenter(initialLocation);
+	             		
+	             		// Add a marker for geolocation
+  						addMarker(initialLocation, map);
+	         		});   
+				 } 
+				 
+				 // Add a marker at the center of the map for default location
+				 else { addMarker(myLatlng1, map);
+			  	 }
+	        }
+	    	google.maps.event.addDomListener(window, 'load', initialize);
+	    </script>
+
+{% endblock %}
+
+{%block map%}
+	
+   	<div id="map-canvas"></div>
+	
+{%endblock%}

@@ -1,19 +1,33 @@
 {% extends "master.html"%}
 
+	{% include 'header.html' %}
+  	{% include 'loginDiv.html' %}
+	
+
 {%block body%}
 <br/>
 <br/>
 <br/>
+	<script>
+        function loginButtonClick()
+    {
+        
+        document.getElementsByName("loginButtonInput")[0].value="ON";
+        
+    }
+    </script>
 <div class="loginForm" align="center">
 	<form method ="post">
-        <input name="username" class="rounded" type="text" placeholder="Login"> <br/> <br/>
-        <input name="password" class="rounded" type="text" placeholder="Password"> <br/> <br/>
-   		<div id=LoginButtons class="LoginButtons">
-   			<input name="loginButton" class="searchButton spacer" type="submit" value="Login">
-   			
+        <input name="userNameLogin" class="rounded" type="text" value="userName" placeholder="Login"> <br/> <br/>
+        <input name="password" class="rounded" type="text" value="your_key" placeholder="Password"> <br/> <br/>
+   		<input name="loginButtonInput" type="hidden" value="OFF">
+   		<div id=LoginButtons class="LoginButtons" >
+   		
+		
+   		<button class="searchButton spacer" name="loginButton" onclick="loginButtonClick()" >Login</button>
    		
     </form>
-    		<form action="/register"><button class="searchButton spacer">Register</button></form>
+    		
     	</div>
 </div>
 

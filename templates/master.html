@@ -6,52 +6,47 @@
 <title> TrekTip </title>
 	<link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/css/master.css">
-    <link rel="stylesheet" href="/js/ammap/ammap.css" type="text/css">
-    <script src="/js/ammap/ammap.js" type="text/javascript"></script>
-    <!-- check ammap/maps/js/ folder to see all available countries -->
-    <!-- map file should be included after ammap.js -->
-	<script src="/js/ammap/maps/js/usa2Low.js" type="text/javascript"></script>
+  	
+  	{% block mapScripts %}
+  	{% endblock %}
 
 	
 	
 </head>
 <body>
-	<div id="Header" class="Header">
-		<a href="/default"><span class="defaultlink"></span></a>
-		<div id="logo" class="logo"><img src="/images/TrekTipLogo2.jpg"/></div>
-		<div id="LogoText" class="LogoText">TrekTip</div>
-		<div id="sublogo" class="sublogo">Navigate, Create events, and Invite Anyone!</div>
-	</div>
-	<div id="login" class="login"><a href="/login" target="_top">Login</a> |<a href="/register" target="_top"> Register </a></div>
-	<div id="Search" class="Search">
-		<div id="LocationSearch" class="LocationSearch"><input type="text" class="rounded" name="location" placeholder="Where are you going?"></div>
-		<div id="EventTypeSearch" class="EventSearch"><input type="text" class="rounded" name="event" placeholder="What are you looking for?"></div>
-		<div id="SearchButton" class="SearchButton"><button class="searchButton">Search</button></div>
-	
-	</div>
-	
-	
+{% block header %}
+{% endblock %}
+
+{% block loginDiv %}
+{% endblock %}
+
 	<div class="backgroundImg">
 		{{backgroundImg}}
 	</div>
-	<div id="main">
-		{% block body %}
-			<p> Nothing has been defined yet;</p>
-			
-		{% endblock %}
+	
+<div id="body">
+	
+	<div>
 		
 	</div>
-	<div id="footer" class="MasterFooter">
-		<br/><br/>
-		<h4>
-			<a href="/userHome" target="_top" >userHome </a> | About | <a href="/attractionCreation" target = "_top">Create Attractions</a> | <a href="/default" target="_top" >Travel</a>
-		</h4>
-	</div>
-	<div>
-		{{testP}}
-	</div>
+	
+		{% block map %}
+				
+		{% endblock %}
+	
+		{% block body %}
+			
+			
+		{% endblock %}
+
+
 	
 	<!--  Loading libraries -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</div>
+{% include 'userNav.html'%}
+{% block userNav %}
+
+{% endblock %}
 </body>
 </html>

@@ -1,0 +1,19 @@
+
+{%block header%}
+	<div id="Header" class="Header">
+		<a href="{{homeLink}}"><span class="defaultlink"></span></a>
+		<div id="logo" class="logo"><img src="/images/TrekTipLogo2.jpg"/></div>
+		<div id="LogoText" class="LogoText">TrekTip</div>
+		<div id="sublogo" class="sublogo">Navigate, Create events, and Invite Anyone!</div>
+		
+		
+	</div>
+	{{loginForm}}
+	
+	{% block search %}
+	{% endblock %}
+	
+	{% block userNav %}
+	{% endblock %}
+	
+{%endblock%}

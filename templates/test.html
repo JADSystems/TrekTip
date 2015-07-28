@@ -1,0 +1,19 @@
+{% extends "master.html"%}
+
+{%block body%}
+<div class="imgForm">
+	<form method ="post">
+        <label for="imgIn"> Image: </label>
+        <input name="imgIn" type="file" value="blah"><br/>
+        <br/>
+    <input name="imgButton" type="submit" value="Submit">
+
+    </form>
+</div>
+	<div>
+		{{testText}} 
+	</div>
+	<div>
+		{{testImg}}
+	</div>
+{%endblock%}

@@ -1,0 +1,73 @@
+{%block search%}
+
+	
+<div id="Search" class="Search">
+	<script>
+	
+		function searchButtonClick()
+		{
+			 
+			 document.getElementById("searchButtonInput").value="ON";
+	
+		}
+		
+		function locationFocusOut() {
+			var address = document.getElementById('Location').value;
+			 if (address != "")
+			 {
+
+				 geocoder = new google.maps.Geocoder();
+				 geocoder.geocode({'address' : address}, function(results,status) {
+					
+					 if (status == google.maps.GeocoderStatus.OK) {
+						
+						var loc = results[0].geometry.location;
+						document.getElementById("searchLat").value=loc.lat();
+						document.getElementById("searchLng").value=loc.lng();     
+				 	}
+				});
+			 }
+			 else
+				 {
+				 	document.getElementById("searchVal").value= document.getElementById('searchVal').value;
+					 if (navigator.geolocation) {
+			         		navigator.geolocation.getCurrentPosition(function (position) {
+			             		initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			             		document.getElementById("searchLat").value=initialLocation.lat();
+								document.getElementById("searchLng").value=initialLocation.lng();
+			         		});
+					 }
+				 }
+		
+		}
+		
+		function searchValFocusOut() {
+			document.getElementById("searchVal").value= document.getElementById('searchVal').value;
+			 if (navigator.geolocation) {
+	         		navigator.geolocation.getCurrentPosition(function (position) {
+	             		initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	             		document.getElementById("searchLat").value=initialLocation.lat();
+						document.getElementById("searchLng").value=initialLocation.lng();
+	         		});
+			 }
+		}
+	
+	</script>
+	<div id="LocationSearch" class="LocationSearch"><input onfocusout="locationFocusOut()" id="Location" type="text" class="rounded" name="location" placeholder="Where are you going?"></div>
+	<div id="EventTypeSearch" class="EventSearch"><input onfocusout="searchValFocusOut()" id="searchVal" type="text" class="rounded" name="event" placeholder="What are you looking for?"></div>
+	<div>
+		<form id="searchForm" method="post">
+			<input name="searchButtonInput" id="searchButtonInput" type="hidden" value="OFF">
+			<input name="searchLat" id="searchLat" type="hidden" value="123">
+			<input name="searchLng" id="searchLng" type="hidden" value="123">
+			<input name="searchVal" id="searchVal" type="hidden" value="123">	
+			<button id="searchButton" class="searchButton" onclick="searchButtonClick()">Search</button>
+		</form>
+	</div>
+
+
+	
+</div>
+
+	
+{%endblock%}

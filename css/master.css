@@ -2,6 +2,25 @@
 	master css to be implemented into the all pages;
 
 */
+body
+{
+	/*background-color:#0F0F0F;*/
+	background-color:#FFFFFF;
+	color: #4f4f4f;
+	text-align: center;
+	height:100%;
+	/*color:rgb(193,191,191);*/
+
+}
+div
+{
+    margin-top: 0px;
+    font-family: 'Julius Sans One', sans-serif;
+}
+div a
+{
+    text-decoration: none;    
+}
 .Header
 {
 	position:relative;
@@ -144,24 +163,7 @@ input.rounded:focus {
     border-color: #339933;
 }
 
-body
-{
-	/*background-color:#0F0F0F;*/
-	background-color:#FFFFFF;
-	color: #4f4f4f;
-	text-align: center;
-	/*color:rgb(193,191,191);*/
 
-}
-div
-{
-    margin-top: 0px;
-    font-family: 'Julius Sans One', sans-serif;
-}
-div a
-{
-    text-decoration: none;    
-}
             
 .backgroundImg
 {
@@ -211,9 +213,12 @@ div a
 }
 .MasterFooter
 {
-	
-	padding-top: 10px;
-	martin-top: 10px;
+	position: absolute;
+	width: 50%;
+	left: 25%;
+	top: 90%;
+	justify-content: center;
+	z-index:1;
 }
 
 .roundedSelect
@@ -303,4 +308,19 @@ span.tab
     height: 200px;
     overflow-y: scroll;
 	
+}
+#logOutForm
+{
+	position:absolute;
+	right:5%;
+	top:5%;
+}
+#map-canvas
+{
+	height:60%;
+	width:60%;
+	position: absolute;
+	right:20%;
+	top:30%;
+	z-index:1;
 }

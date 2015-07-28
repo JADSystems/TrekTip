@@ -1,14 +1,28 @@
 {% extends "master.html"%}
+{% include 'header.html' %}
+
+{% include 'loginDiv.html' %}
 
 {%block body%}
 <div id="Registration" class = "registration">
+	<script>
+        function registerButtonClick()
+    {
+        
+        document.getElementsByName("registerButtonInput")[0].value="ON";
+        
+    }
+    </script>
 	<h1>Create an Account</h1>
 	<form method="post">
-	<input name="username" class="rounded" type="text" placeholder="Username"> <br/> <br/>
-	<input name="email" class="rounded" type="text" placeholder="Email Address"> <br/> <br/>
-	<input name="password" class="rounded" type="text" placeholder="Enter Password"> <br/> <br/>
-	<input name="password" class="rounded" type="text" placeholder="Re-type Password"> <br/> <br/>
-	<div class="registerButton"><button class="searchButton">Create Account</button></div>
+		<input name="firstNameRegister" class="rounded" type="text" placeholder="first name"> <br/> <br/>
+		<input name="lastNameRegister" class="rounded" type="text" placeholder="last name"> <br/> <br/>
+		<input name="userNameRegister" class="rounded" type="text" placeholder="Username"> <br/> <br/>
+		<input name="email" class="rounded" type="text" placeholder="Email Address"> <br/> <br/>
+		<input name="passwordInput" class="rounded" type="text" placeholder="Enter Password"> <br/> <br/>
+		<input name="passwordCheck" class="rounded" type="text" placeholder="Re-type Password"> <br/> <br/>
+		<input name="registerButtonInput" type="hidden" value="OFF">
+		<div class="registerButton"><button class="searchButton" onclick="registerButtonClick()">Create Account</button>
 	</form>
 </div>
 
