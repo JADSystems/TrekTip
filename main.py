@@ -157,7 +157,8 @@ def search(web, searchval, searchlat, searchlng):
         # Connecting from App Engine
         db = MySQLdb.connect(
         unix_socket='/cloudsql/trektip:trektipsql',
-        user='root',passwd='TfReETO88zFyArUa65za');
+        user='root',passwd='TfReETO88zFyArUa65za',
+        db='trektip');
     else:
         # Connecting from an external network.
         # Make sure your network is whitelisted
@@ -165,19 +166,28 @@ def search(web, searchval, searchlat, searchlng):
         host='2001:4860:4864:1:4c3a:dc28:7694:1e53',
         port=3306,
         user='root',
-        passwd='TfReETO88zFyArUa65za');
+        passwd='TfReETO88zFyArUa65za',
+        db='trektip');
+    
     cursor=db.cursor();
     if searchval != '123':
-        searchQuery='use trektip; \nCALL search_attr(' + searchlat +',' + searchlng +',' + searchval+');';
+        searchQuery='CALL search_attr(' + searchlat +',' + searchlng +',' + searchval+');';
     else:
-        searchQuery='use trektip; \nCALL search_loc(' + searchlat +',' + searchlng+');';
+        searchQuery='CALL search_loc(' + searchlat +',' + searchlng+');';
     cursor.execute(searchQuery);
-    resultSet = '';
-
+    resultSet=[];
+    n=0;
     for r in cursor.fetchall():
-        resultSet += str(r);
-     
-    template_values.update({'searchResult':searchQuery});
+        resultSet.append(str(r))
+        resultSet[n]=resultSet[n].translate(None,'''()@#,$\'''');
+        resultSet[n]=resultSet[n] + "<br />"; 
+        n=n+1;
+    
+    resultValues="";
+        
+    for i in range(len(resultSet)):
+        resultValues+=resultSet[i];
+    template_values.update({'searchResult':resultValues});
     return;
     
 
@@ -251,10 +261,15 @@ class TestHandler(webapp2.RequestHandler):
         self.response.out.write(template.render(template_values));
     def post(self):
         
-        #Check if Search, if so.. perform search
-#         searchButton=self.request.get("searchButton")
-#         if searchButton == 'ON':
-#             search(self);
+        
+        searchButton=self.request.get("searchButtonInput")
+        lat=self.request.get("searchLat");
+        lng=self.request.get("searchLng");
+        searchVal=self.request.get("searchVal");
+        if searchButton == 'ON':
+            search(self, searchVal,lat,lng);
+            self.redirect('/searchHome');
+            return;
         
         #Check if logOut. IF so, then go back to default.html
         logOutButton=self.request.get('logOutButton');
@@ -310,10 +325,14 @@ class UserHomeHandler(webapp2.RequestHandler):
         self.response.out.write(template.render(template_values));
         
     def post(self):
-#         #Check if Search, if so.. perform search
-#         searchButton=self.request.get("searchButton")
-#         if searchButton == 'ON':
-#             search(self);
+        searchButton=self.request.get("searchButtonInput")
+        lat=self.request.get("searchLat");
+        lng=self.request.get("searchLng");
+        searchVal=self.request.get("searchVal");
+        if searchButton == 'ON':
+            search(self, searchVal,lat,lng);
+            self.redirect('/searchHome');
+            return;
             
         #Check if logOut. IF so, then go back to default.html
         logOutButton=self.request.get('logOutButton');
@@ -338,10 +357,14 @@ class CreateAttractionHandler(webapp2.RequestHandler):
         
         
     def post(self):
-        #Check if Search, if so.. perform search
-#         searchButton=self.request.get("searchButton")
-#         if searchButton == 'ON':
-#             search(self);
+        searchButton=self.request.get("searchButtonInput")
+        lat=self.request.get("searchLat");
+        lng=self.request.get("searchLng");
+        searchVal=self.request.get("searchVal");
+        if searchButton == 'ON':
+            search(self, searchVal,lat,lng);
+            self.redirect('/searchHome');
+            return;
 #         
         #Check if logOut. IF so, then go back to default.html
         logOutButton=self.request.get('logOutButton');
@@ -355,11 +378,14 @@ class CreateAttractionHandler(webapp2.RequestHandler):
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
-        
-        #Check if Search, if so.. perform search
-#         searchButton=self.request.get("searchButton")
-#         if searchButton == 'ON':
-#             search(self);
+        searchButton=self.request.get("searchButtonInput")
+        lat=self.request.get("searchLat");
+        lng=self.request.get("searchLng");
+        searchVal=self.request.get("searchVal");
+        if searchButton == 'ON':
+            search(self, searchVal,lat,lng);
+            self.redirect('/searchHome');
+            return;
             
         if checkLogOut(self)==False:
             self.redirect('/userHome');
@@ -370,9 +396,18 @@ class LoginHandler(webapp2.RequestHandler):
         
     def post(self):
         
-        getLoginButton=self.request.get('loginButtonInput');
+        searchButton=self.request.get("searchButtonInput")
+        lat=self.request.get("searchLat");
+        lng=self.request.get("searchLng");
+        searchVal=self.request.get("searchVal");
+        if searchButton == 'ON':
+            search(self, searchVal,lat,lng);
+            self.redirect('/searchHome');
+            return;
         
-    
+        
+        getLoginButton=self.request.get('loginButtonInput');
+          
         
         if getLoginButton=='ON':
             session=get_current_session();
@@ -403,12 +438,17 @@ class LoginHandler(webapp2.RequestHandler):
 class SearchHandler(webapp2.RequestHandler):
     def get(self):       
         template=jinja_environment.get_template('searchHome.html');
-        template
         self.response.out.write(template.render(template_values));
     
     def post(self):
-        template=jinja_environment.get_template('searchHome.html');
-        self.response.out.write(template.render(template_values));
+        searchButton=self.request.get("searchButtonInput")
+        lat=self.request.get("searchLat");
+        lng=self.request.get("searchLng");
+        searchVal=self.request.get("searchVal");
+        if searchButton == 'ON':
+            search(self, searchVal,lat,lng);
+            self.redirect('/searchHome');
+            return;
             
 class RegisterHandler(webapp2.RequestHandler):
     def get(self):
@@ -419,6 +459,15 @@ class RegisterHandler(webapp2.RequestHandler):
         self.response.out.write(template.render(template_values));    
     
     def post(self):
+        
+        searchButton=self.request.get("searchButtonInput")
+        lat=self.request.get("searchLat");
+        lng=self.request.get("searchLng");
+        searchVal=self.request.get("searchVal");
+        if searchButton == 'ON':
+            search(self, searchVal,lat,lng);
+            self.redirect('/searchHome');
+            return;
         
         getRegisterButtonInput=self.request.get('registerButtonInput');
         if getRegisterButtonInput=='ON':
